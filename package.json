@@ -6,8 +6,46 @@
     "license": "MIT",
     "author": "Microsoft",
     "scripts": {
+        "preinstall": "echo 'preinstall: before npm install'",
+        "install": "echo 'install: during npm install'",
+        "postinstall": "echo 'postinstall: after npm install'",
+
+        "prestart": "echo 'prestart: before start'",
         "start": "node index.js",
-        "lint": "eslint",
+        "poststart": "echo 'poststart: after start'",
+
+        "dev": "node --watch index.js",
+
+        "prebuild": "npm run lint",
+        "build": "echo '✓ Build: validated and ready'",
+        "postbuild": "echo '✓ Build complete'",
+
+        "pretest": "echo 'Running tests against server...'",
+        "test": "node test.js",
+        "posttest": "echo '✓ All tests finished'",
+
+        "prerestart": "echo 'prerestart: before restart'",
+        "restart": "npm stop && npm start",
+        "postrestart": "echo 'postrestart: after restart'",
+
+        "prestop": "echo 'prestop: before stop'",
+        "stop": "echo 'stop: stopping server'",
+        "poststop": "echo 'poststop: after stop'",
+
+        "prepack": "echo 'prepack: before packing'",
+        "postpack": "echo 'postpack: after packing'",
+
+        "prepublishOnly": "echo 'prepublishOnly: before publish'",
+
+        "prepare": "echo 'prepare: post-install & before publish'",
+
+        "preversion": "npm run lint && npm test",
+        "version": "echo 'version: after version bump'",
+        "postversion": "echo 'postversion: after version commit'",
+
+        "release": "npm run build && npm test && npm version patch",
+
+        "lint": "eslint .",
         "format": "prettier --single-quote --write *.js"
     },
     "devDependencies": {
