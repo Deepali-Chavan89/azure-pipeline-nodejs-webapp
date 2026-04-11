@@ -53,9 +53,29 @@ app.options('*', cors());
 // Configure routes
 const router = express.Router();
 
-// Hello World for index page
+// Hello World UI for index page
 app.get('/', function (req, res) {
-    return res.send("Hello World!");
+    return res.send(`<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hello World</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f0f4f8; display: flex; align-items: center; justify-content: center; min-height: 100vh; }
+  .card { background: #fff; border-radius: 16px; padding: 3rem 4rem; text-align: center; box-shadow: 0 4px 24px rgba(0,0,0,.08); }
+  .card h1 { font-size: 2.5rem; color: #1e293b; margin-bottom: .5rem; }
+  .card p { color: #64748b; font-size: 1.1rem; }
+</style>
+</head>
+<body>
+  <div class="card">
+    <h1>Hello World!</h1>
+    <p>Welcome to Azure App Service.</p>
+  </div>
+</body>
+</html>`);
 })
 
 app.get('/api', function (req, res) {
